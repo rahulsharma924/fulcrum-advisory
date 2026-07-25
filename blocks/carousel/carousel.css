@@ -1,0 +1,118 @@
+.carousel {
+  background-color: var(--dark-color);
+  color: var(--background-color);
+  padding: 60px 24px;
+}
+
+.carousel-track-wrap {
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carousel-card {
+  min-width: 320px;
+  max-width: 400px;
+  flex: 1 0 320px;
+  background: rgb(255 255 255 / 5%);
+  border: 1px solid rgb(255 255 255 / 12%);
+  border-radius: 20px;
+  padding: 32px;
+}
+
+.carousel-client {
+  font-family: var(--mono-font-family);
+  font-size: var(--body-font-size-xs);
+  opacity: 0.55;
+  margin-bottom: 14px;
+}
+
+.carousel-card h3 {
+  font-size: var(--heading-font-size-xs);
+  margin: 0 0 14px;
+  color: var(--background-color);
+}
+
+.carousel-desc {
+  opacity: 0.7;
+  font-size: var(--body-font-size-xs);
+  margin-bottom: 24px;
+}
+
+.carousel-result {
+  display: flex;
+  gap: 28px;
+}
+
+.carousel-stat-num {
+  font-family: var(--mono-font-family);
+  font-size: 26px;
+  color: var(--accent-teal);
+}
+
+.carousel-stat-lbl {
+  font-size: 11px;
+  opacity: 0.55;
+  margin-top: 4px;
+}
+
+.carousel-controls {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-top: 36px;
+}
+
+.carousel-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgb(255 255 255 / 30%);
+  background: transparent;
+  color: var(--background-color);
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.carousel-btn:not(:disabled):hover {
+  background: rgb(255 255 255 / 15%);
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 8px;
+  margin-left: 10px;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgb(255 255 255 / 25%);
+  cursor: pointer;
+  padding: 0;
+}
+
+.carousel-dot.active {
+  background: var(--accent-electric);
+}
+
+@media (width >= 900px) {
+  .carousel {
+    padding: 100px 32px;
+  }
+}
