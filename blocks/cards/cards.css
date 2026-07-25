@@ -25,3 +25,46 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
+
+/*
+ * VARIANT: colored
+ * Authored as "Cards (colored)" in the doc's block name.
+ * For text-only cards (no image) - cycles through 4 brand accent gradients.
+ */
+.cards.colored > ul > li {
+  border: none;
+  border-radius: 20px;
+  color: var(--background-color);
+}
+
+.cards.colored .cards-card-body {
+  margin: 32px 28px;
+}
+
+.cards.colored .cards-card-body h3 {
+  font-size: var(--heading-font-size-xs);
+  margin: 0 0 10px;
+  color: var(--background-color);
+}
+
+.cards.colored .cards-card-body p {
+  font-size: var(--body-font-size-xs);
+  opacity: 0.9;
+  margin: 0;
+}
+
+.cards.colored > ul > li:nth-child(4n+1) {
+  background: linear-gradient(135deg, var(--accent-electric), #1E2FBE);
+}
+
+.cards.colored > ul > li:nth-child(4n+2) {
+  background: linear-gradient(135deg, var(--accent-pink), #C2185B);
+}
+
+.cards.colored > ul > li:nth-child(4n+3) {
+  background: linear-gradient(135deg, var(--accent-amber), #D65A00);
+}
+
+.cards.colored > ul > li:nth-child(4n+4) {
+  background: linear-gradient(135deg, var(--accent-teal), #009481);
+}
