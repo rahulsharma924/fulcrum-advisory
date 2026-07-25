@@ -1,0 +1,37 @@
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: var(--dark-color);
+  padding: 28px 0;
+}
+
+.marquee-track {
+  display: inline-block;
+  animation: marquee-scroll 22s linear infinite;
+}
+
+.marquee-track span {
+  font-family: var(--mono-font-family);
+  font-size: var(--body-font-size-xs);
+  font-weight: 600;
+  color: var(--background-color);
+  opacity: 0.5;
+  margin: 0 48px;
+  display: inline-block;
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* respect users who've asked for reduced motion - freeze instead of animating */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+
+  .marquee {
+    overflow-x: auto;
+  }
+}
