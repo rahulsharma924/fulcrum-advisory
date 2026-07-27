@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Block test: hero</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles/styles.css">
+<link rel="stylesheet" href="/blocks/hero/hero.css">
+<style>
+  .test-label { font-family: monospace; font-size: 12px; background: #222; color: #0f0; padding: 8px 16px; }
+</style>
+</head>
+<body>
+<div class="test-label">TEST HARNESS -- imports the REAL /blocks/hero/hero.js and hero.css directly</div>
+<main>
+  <div class="section">
+    <div class="hero-wrapper">
+      <div class="hero block" data-block-name="hero" data-block-status="loading">
+        <div><div>Operations &amp; Manufacturing Advisory</div></div>
+        <div><div><picture><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1600&q=80" alt="Factory floor"></picture></div></div>
+        <div><div>
+          <h1>We find the one change that moves the whole system.</h1>
+          <p>Fulcrum Advisory works inside plants, distribution networks, and supply chains to locate the leverage points where small, precise changes produce outsized results.</p>
+          <p><a href="#"><strong>Book a diagnostic</strong></a> <a href="#"><em>See our approach</em></a></p>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script type="module">
+import decorate from '/blocks/hero/hero.js';
+
+const block = document.querySelector('.hero.block');
+decorate(block);
+block.dataset.blockStatus = 'loaded';
+
+// button decoration normally comes from scripts.js globally, so we replicate
+// that one small piece here too
+document.querySelectorAll('main p a[href]').forEach((a) => {
+  const p = a.closest('p');
+  const text = a.textContent.trim();
+  if (p.textContent.trim() !== text) return;
+  const strong = a.closest('strong');
+  const em = a.closest('em');
+  if (!strong && !em) return;
+  p.className = 'button-wrapper';
+  a.className = 'button';
+  if (strong) { a.classList.add('primary'); strong.replaceWith(a); }
+  else { a.classList.add('secondary'); em.replaceWith(a); }
+});
+</script>
+</body>
+</html>
